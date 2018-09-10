@@ -17,4 +17,9 @@ Scenariusz: Znajdź optymalną trasę pomiędzy stacjami na tej samej linii.
 		|	8:02	|
 		|	8:11	|
 		|	8:14	|
-	
+
+Scenariusz: Szacowanie czasu przyjazdu
+	Zakładając chcę się dostać z "Parramatta" do "TownHall"
+	I następny pociąg odjeżdża o 8:02 na linii "Western"
+	Gdy zapytam o godzinę przyjazdu
+	Wtedy powinienem uzyskać następujący szacowany czas przyjazdu: 8:29
