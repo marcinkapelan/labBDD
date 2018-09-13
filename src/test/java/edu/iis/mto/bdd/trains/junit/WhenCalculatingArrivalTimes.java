@@ -41,10 +41,10 @@ public class WhenCalculatingArrivalTimes {
         List<LocalTime> lineArrivalTimes = new ArrayList<>(
                 Arrays.asList(new LocalTime(8,6), new LocalTime(8,10), new LocalTime(8,14), new LocalTime(8,21), new LocalTime(8,35)));
 
-        List<LocalTime> expectedArrivalTimes = new ArrayList<>(Arrays.asList(new LocalTime(8,6), new LocalTime(8,10), new LocalTime(8,14)));
+        List<LocalTime> expectedArrivalTimes = new ArrayList<>(Arrays.asList(new LocalTime(8,6), new LocalTime(8,10), new LocalTime(8,14), new LocalTime(8,21)));
 
         Mockito.when(timetableService.findLinesThrough(departure, destination)).thenReturn(lines);
-        Mockito.when(timetableService.findArrivalTimes(line, destination)).thenReturn(lineArrivalTimes);
+        Mockito.when(timetableService.findArrivalTimes(line, departure)).thenReturn(lineArrivalTimes);
 
         assertThat(itineraryService.findNextDepartures(departure, destination, startTime), Matchers.is(expectedArrivalTimes));
     }

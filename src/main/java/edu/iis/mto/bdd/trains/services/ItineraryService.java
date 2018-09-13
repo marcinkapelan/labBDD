@@ -19,7 +19,7 @@ public class ItineraryService {
 
         for (Line line : timetableService.findLinesThrough(departure, destination)) {
            for (LocalTime arrivalTime :  timetableService.findArrivalTimes(line, departure)) {
-               if (arrivalTime.isAfter(startTime) && arrivalTime.minusMinutes(15).isBefore(startTime)) {
+               if (arrivalTime.isAfter(startTime) && arrivalTime.minusMinutes(30).isBefore(startTime)) {
                    arrivalTimes.add(arrivalTime);
                }
            }
