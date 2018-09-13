@@ -2,6 +2,7 @@ package edu.iis.mto.bdd.trains.cucumber.steps;
 
 import java.util.List;
 
+import edu.iis.mto.bdd.trains.model.Line;
 import edu.iis.mto.bdd.trains.services.InMemoryTimetableService;
 import edu.iis.mto.bdd.trains.services.ItineraryService;
 import org.hamcrest.Matchers;
@@ -19,11 +20,12 @@ public class OptimalItinerarySteps {
 
     private ItineraryService itineraryService = new ItineraryService(new InMemoryTimetableService());
     private List<LocalTime> trainTimes;
+    private Line line;
 
     @Zakładając("^pociągi linii \"(.*)\" z \"(.*)\" odjeżdżają ze stacji \"(.*)\" do \"(.*)\" o$")
-    public void givenArrivingTrains(String line, String lineStart, String departure, String destination,
+    public void givenArrivingTrains(String lineName, String lineStart, String departure, String destination,
             @Transform(JodaLocalTimeConverter.class) List<LocalTime> departureTimes) {
-        throw new PendingException();
+        line = Line.named(lineName).departingFrom(departure).withStations(destination);
 
     }
 
